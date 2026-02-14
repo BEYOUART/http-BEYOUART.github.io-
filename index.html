@@ -15,7 +15,7 @@ body {
   color: #111;
 }
 
-/* ===== Logo Section ===== */
+/* ===== Header ===== */
 header {
   text-align: center;
   padding: 100px 20px 60px;
@@ -38,7 +38,7 @@ header {
   animation-delay: 0.8s;
 }
 
-/* ===== Store Grid ===== */
+/* ===== Grid ===== */
 .container {
   max-width: 1100px;
   margin: auto;
@@ -72,7 +72,7 @@ header {
   border-radius: 20px;
 }
 
-/* ===== Glass Badge ===== */
+/* ===== Glass Customizable Badge ===== */
 .badge {
   position: absolute;
   top: 12px;
@@ -81,46 +81,18 @@ header {
   font-size: 11px;
   letter-spacing: 1px;
   border-radius: 20px;
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.2);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.3);
+  border: 1px solid rgba(255,255,255,0.4);
   color: white;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   opacity: 0;
   transform: translateY(-10px) scale(0.9);
   transition: all 0.3s ease;
-  overflow: hidden;
-}
-
-.badge::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -150%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    rgba(255,255,255,0) 0%,
-    rgba(255,255,255,0.6) 50%,
-    rgba(255,255,255,0) 100%
-  );
-  transform: skewX(-25deg);
 }
 
 .card:hover .badge {
   opacity: 1;
   transform: translateY(0) scale(1);
-}
-
-.card:hover .badge::after {
-  animation: shimmer 1.2s ease forwards;
-}
-
-@keyframes shimmer {
-  0% { left: -150%; }
-  100% { left: 150%; }
 }
 
 .card h2 {
@@ -172,7 +144,7 @@ footer {
 <body>
 
 <header>
-  <img src="Untitled.png" alt="beyouart Logo" class="logo">
+  <img src="beyouart-logo.png" alt="beyouart Logo" class="logo">
   <div class="tagline">express yourself</div>
 </header>
 
@@ -184,13 +156,59 @@ footer {
 
 <script>
 const products = [
-  { name: "Red Panda Art", image: "2026_2-8_Red Panda_WPM.png", customizable: false, url: "https://buy.stripe.com/28EaEX0SlcVia590sM3Nm06" },
-  { name: "Red Panda art (customizable)", image: "2026_2-8_Red Panda_WPM.png", customizable: true, url: "https://buy.stripe.com/aFa5kD6cFf3qa597Ve3Nm05" },
-  { name: "Dog art", image: "2026_2-8_Dog_WPM.png", customizable: false, url: "https://buy.stripe.com/7sY9ATgRjdZm5OTa3m3Nm04" },
-  { name: "Panda art", image: "2026_2-8_Panda_WPM.pdf", customizable: false, url: "https://buy.stripe.com/bJe00j0SldZm4KP1wQ3Nm03" },
-  { name: "Panda art (customizable)", image: "2026_2-8_Panda_WPM.pdf", customizable: true, url: "https://buy.stripe.com/dRmeVd8kN3kIb9d8Zi3Nm02" },
-  { name: "Axolotl art (customizable)", image: "2026_2-8_Axolotl_WPM2.pdf", customizable: true, url: "https://buy.stripe.com/fZueVd44x9J6b9dcbu3Nm01" },
-  { name: "Axolotl art", image: "2026_2-8_Axolotl_WPM2.pdf", customizable: false, url: "https://buy.stripe.com/3cI9AT58BbRe7X1cbu3Nm08" }
+
+  { 
+    name: "Dog art", 
+    image: "2026_2-8_Dog_WPM.jpg", 
+    customizable: false, 
+    url: "https://buy.stripe.com/7sY9ATgRjdZm5OTa3m3Nm04"
+  },
+  { 
+    name: "Dog art (customizable)", 
+    image: "2026_2-8_Dog_WPM.jpg", 
+    customizable: true, 
+    url: "https://buy.stripe.com/9B6bJ144x1cAgtx1wQ3Nm07"
+  },
+
+  { 
+    name: "Axolotl art", 
+    image: "2026_2-8_Axolotl_WPM 2.jpg", 
+    customizable: false, 
+    url: "https://buy.stripe.com/3cI9AT58BbRe7X1cbu3Nm08"
+  },
+  { 
+    name: "Axolotl art (customizable)", 
+    image: "2026_2-8_Axolotl_WPM 2.jpg", 
+    customizable: true, 
+    url: "https://buy.stripe.com/fZueVd44x9J6b9dcbu3Nm01"
+  },
+
+  { 
+    name: "Panda art", 
+    image: "2026_2-8_Panda_WPM.jpg", 
+    customizable: false, 
+    url: "https://buy.stripe.com/bJe00j0SldZm4KP1wQ3Nm03"
+  },
+  { 
+    name: "Panda art (customizable)", 
+    image: "2026_2-8_Panda_WPM.jpg", 
+    customizable: true, 
+    url: "https://buy.stripe.com/dRmeVd8kN3kIb9d8Zi3Nm02"
+  },
+
+  { 
+    name: "Red Panda Art", 
+    image: "B9FB8290-4307-4290-9D0C-44E233065FCE.jpeg", 
+    customizable: false, 
+    url: "https://buy.stripe.com/28EaEX0SlcVia590sM3Nm06"
+  },
+  { 
+    name: "Red Panda art (customizable)", 
+    image: "B9FB8290-4307-4290-9D0C-44E233065FCE.jpeg", 
+    customizable: true, 
+    url: "https://buy.stripe.com/aFa5kD6cFf3qa597Ve3Nm05"
+  }
+
 ];
 
 const container = document.getElementById("productContainer");
